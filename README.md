@@ -46,7 +46,7 @@ TBC
 4. Cast another vote
 
 ## Screencast Link
-TBC
+https://www.loom.com/share/6ec0669e77fc4785aedf56d784eefd02
 
 ## TODO
 1. Working on adding an admin role that could grant and remove voting rights to specific accounts
