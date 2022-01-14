@@ -27,6 +27,7 @@ contract Election is Pausable {
 
     // TODO Add more info
     event votedEvent (
+        address indexed from,
         uint indexed candidateId
     );
 
@@ -71,19 +72,6 @@ contract Election is Pausable {
         );
         _;
     }
-   
-    /// @dev Add the sender of this transaction to mapping listing
-    /// @dev accounts that has already voted
-    modifier AddSenderToVoters() {
-        _;
-        voters[msg.sender] = true;
-    }
-
-    /// @dev Increment the candidate's vote count
-    modifier IncrementCandidate(uint id) {
-        _;
-        candidates[id].voteCount++;
-    } 
 
     /// @notice Voting mechanism
     /// @dev Adds the voter's address to pool listing addresses that has
@@ -92,10 +80,15 @@ contract Election is Pausable {
     /// @param candidateId Candidate's id
     function vote(uint candidateId) public OnlyIfDidNotVote
                                            OnlyForValidCandidate(candidateId)
-                                           OnlyBeforeSpecificTime
-                                           AddSenderToVoters
-                                           IncrementCandidate(candidateId) {
+                                           OnlyBeforeSpecificTime {
+        /// @dev Add the sender of this transaction to mapping listing
+        /// @dev accounts that has already voted with 'true' value
+        voters[msg.sender] = true;
+
+        /// @dev Increment the candidate's vote count
+        candidates[candidateId].voteCount++;
+        
         /// @dev Trigger voted event
-        emit votedEvent(candidateId);
+        emit votedEvent(msg.sender, candidateId);
     }
 }
