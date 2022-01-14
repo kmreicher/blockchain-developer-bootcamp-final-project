@@ -49,4 +49,5 @@ TBC
 TBC
 
 ## TODO
-TBC
+1. Working on adding an admin role that could grant and remove voting rights to specific accounts
+2. Move to React
