@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Election Results</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    
+    <script src="js/external/web3.min.js"></script>
+    <script src="js/external/truffle-contract.js"></script>
+    
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+    <div class="container" style="width: 650px;">
+      <div class="row">
+        <div class="col-lg-12">
+          <br /><br />
+          <h1 class="text-center">Modern election booth</h1>
+          <h3 class="text-center text-secondary">Hosted on blockchain</h3>
+          <p class="text-center text-info">This election booth is hosted on a blockchain and uses Ethereum's smart contracts to store and cast voted in a distributed manner</p>
+          <br /><br /><br />
+
+          <div id="metamask" style="display: none;">
+            <h2 class="text-center text-danger">No meta mask instance detected</h2>
+          </div> <!-- loader -->
+          
+          <div id="content" style="display: none;">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Votes</th>
+                </tr>
+              </thead>
+              
+              <tbody id="candidatesResults"></tbody>
+            </table>
+
+            <br />
+            <div class="mx-auto" style="width: 200px;">
+              <form class="form-inline" onSubmit="App.castVote(); return false;">
+                <div class="form-row align-items-center">
+                  <div class="form-group">
+                    <select class="form-control" id="candidatesSelect"></select>
+                  </div> <!-- form-group -->
+                  <div class="col-auto my-1">
+                    <button type="submit" class="btn btn-dark">Vote</button>
+                  </div> <!-- col-auto my-1 -->
+                </div> <!-- form-row align-items -->
+              </form>
+            </div> <!-- mx-auto -->
+            
+            <br /><br />
+            <p class="text-center text-secondary">Public address of the connected account</p>
+            <p id="accountAddress" class="text-center text-secondary"></p>
+          </div> <!-- content -->
+
+        </div> <!-- col-lg-12 -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+  </body>
+</html>
