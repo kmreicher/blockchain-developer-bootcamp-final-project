@@ -10,7 +10,7 @@ contract Migrations {
   address public owner;
   /// Corresponds to the last applied migration script, found in the
   /// migrations folder
-  uint public lastCompletedMigrations;
+  uint256 public last_completed_migration;
 
   /// @dev Only owner can use this function
   modifier onlyOwner() {
@@ -28,6 +28,6 @@ contract Migrations {
 
   /// @dev Only usable by the transaction's owner
   function setCompleted(uint completed) onlyOwner public {
-    lastCompletedMigrations = completed;
+    last_completed_migration = completed;
   }
 }
