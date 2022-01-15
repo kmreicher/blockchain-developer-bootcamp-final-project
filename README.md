@@ -7,10 +7,7 @@ This project excercise the idea of hosting a modern type of election using a dec
 This way we prevent third-parties from manipulating the election. In addition, the election would be hosted in a safe environment and the result could be easily accessed and verified by every voter or observator.
 
 ## Workflow
-TBC
-
-## Factors to consider
-TBC
+Each voter can login with Metamask using his personal account and cast a vote to a selected candidate. After the transaction is processed, the results would be visible and updated in real-time.
 
 ## Deployed Version URL
 TBC
@@ -26,13 +23,15 @@ TBC
 
 5. Run local `testnet` in port `8545` wuth an Ethereum client, e.g. Ganache
 
-6. Deploy the smart contracts to the local testnet using `truffle migrate`
+6. Ensure that tests are passing by running `truffle test`
 
-7. Lauch the user interface in port 3000 by running `npm run dev`
+7. Deploy the smart contracts to the local testnet using `truffle migrate --network development`
 
-8. Access the user interface at `http://localhost:3000`
+8. Lauch the user interface in port 3000 by running `npm run dev`
 
-9. Connect your Metamask wallet when prompted
+9. Access the user interface at `http://localhost:3000`
+
+10. Connect your Metamask wallet when prompted
 
 ## Directory Structure
 * `src` — smart contracts and front-end code
